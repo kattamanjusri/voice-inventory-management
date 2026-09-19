@@ -1,0 +1,133 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+import Inventory from "./pages/Inventory";
+import AddStock from "./pages/AddStock";
+import RemoveStock from "./pages/RemoveStock";
+import VoiceEntry from "./pages/VoiceEntry";
+import StockHistory from "./pages/StockHistory";
+
+function Dashboard() {
+
+  return (
+
+    <div className="dashboard">
+
+      <header className="header">
+
+        <h1>📦 Voice Inventory Management</h1>
+
+        <p>
+          Simple inventory management for small businesses
+        </p>
+
+      </header>
+
+
+      <main>
+
+        <div className="cards">
+
+          <div className="card">
+            <h3>📦 Total Products</h3>
+            <p className="number">7</p>
+          </div>
+
+          <div className="card">
+            <h3>⚠️ Low Stock</h3>
+            <p className="number">2</p>
+          </div>
+
+          <div className="card">
+            <h3>📈 Stock Updates</h3>
+            <p className="number">9</p>
+          </div>
+
+        </div>
+
+
+        <div className="actions">
+
+          <Link to="/inventory">
+            <button>📦 Inventory</button>
+          </Link>
+
+          <Link to="/add-stock">
+            <button>➕ Add Stock</button>
+          </Link>
+
+          <Link to="/remove-stock">
+            <button>➖ Remove Stock</button>
+          </Link>
+
+          <Link to="/voice-entry">
+            <button>🎤 Voice Entry</button>
+          </Link>
+
+          <Link to="/stock-history">
+            <button>📋 Stock History</button>
+          </Link>
+
+          <button>
+            💬 Ask Inventory
+          </button>
+
+        </div>
+
+      </main>
+
+    </div>
+  );
+}
+
+
+function App() {
+
+  return (
+
+    <BrowserRouter>
+
+      <Routes>
+
+        <Route
+          path="/"
+          element={<Dashboard />}
+        />
+
+        <Route
+          path="/inventory"
+          element={<Inventory />}
+        />
+
+        <Route
+          path="/add-stock"
+          element={<AddStock />}
+        />
+
+        <Route
+          path="/remove-stock"
+          element={<RemoveStock />}
+        />
+
+        <Route
+          path="/voice-entry"
+          element={<VoiceEntry />}
+        />
+
+        <Route
+          path="/stock-history"
+          element={<StockHistory />}
+        />
+
+      </Routes>
+
+    </BrowserRouter>
+
+  );
+}
+
+export default App;
